@@ -1,9 +1,11 @@
 {
     "name": "tempo/framework",
     "description": "A framework in process",
+    "type": "framework",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Tempo\\Framework\\": "src/"
+            "Tempo\\": "src/"
         }
     },
     "authors": [

@@ -1,28 +1,5 @@
 <?php
 
-// Solicita datos al usuario desde la consola
-function askQuestion($question, $default = null) {
-    echo $question;
-    // Asegúrate de que el buffer se limpia
-    fflush(STDIN);
-    $input = trim(fgets(STDIN));
-    echo "Entrada recibida (con espacios): '$input'\n";
-    echo "Longitud de entrada: " . strlen($input) . "\n";
-    if (empty($input) && $default !== null) {
-        return $default;
-    }
-    if (empty($input)) {
-        echo "Input cannot be empty.\n";
-        exit(1);
-    }
-    return $input;
-}
-
-$projectName = askQuestion("\nEnter the project name: ");
-$authorName = askQuestion("Enter the author name: ");
-$version = askQuestion("Enter the initial version (default is 1): ", '1');
-$dataBaseProvider = askQuestion("Enter the database provider (e.g., mysql, postgres): ");
-
 // Define el contenido de index.php
 $indexContent = <<<PHP
 <?php
@@ -39,13 +16,8 @@ use SimplePhpApi\Router;
 \$cors = new Cors();
 \$cors->init();
 
-try {
-    Router::init();
-} catch (Exception \$e) {
-    echo json_encode([
-        'error' => \$e->getMessage()
-    ]);
-}
+\$Router::init();
+
 PHP;
 
 // Crea index.php en la raíz del proyecto
@@ -74,12 +46,14 @@ file_put_contents('Connection.php', $connectionContent);
 // Define el contenido de Api.config.json
 $configContent = json_encode([
     "project" => [
-        "name" => $projectName,
-        "author" => $authorName,
-        "version" => $version . '.0'
+        "name" => "API",
+        "version" => "1.0.0"
     ],
-    "dataBase" => [
-        "provider" => $dataBaseProvider
+    "secrets" => [
+        "path" => "./secrets.env"
+    ],
+    "controllers" => [
+        "path" => "./controllers/"
     ]
 ], JSON_PRETTY_PRINT);
 

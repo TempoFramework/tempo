@@ -1,18 +1,12 @@
 {
     "project": {
         "name": "API",
-        "version": "1.0.0",
-        "description": "API for the application",
-        "author": "Author",
-        "license": "MIT"
+        "version": "1.0.0"
     },
     "secrets": {
         "path": "./secrets.env"
     },
     "controllers": {
         "path": "./controllers/"
-    },
-    "config": {
-        
     }
 }
