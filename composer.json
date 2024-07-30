@@ -1,0 +1,16 @@
+{
+    "name": "tempo/framework",
+    "description": "A framework in process",
+    "autoload": {
+        "psr-4": {
+            "Tempo\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TempoFramework",
+            "email": "tempoframework@gmail.com"
+        }
+    ],
+    "require": {}
+}
