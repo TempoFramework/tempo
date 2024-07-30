@@ -14,5 +14,8 @@
             "email": "tempoframework@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "scripts": {
+        "tempo init": "php src/scripts/setup.php"
+    }
 }
