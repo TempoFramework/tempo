@@ -16,6 +16,6 @@
     ],
     "require": {},
     "scripts": {
-        "tempo init": "php src/scripts/setup.php"
+        "tempo:init": "php src/scripts/setup.php"
     }
 }
